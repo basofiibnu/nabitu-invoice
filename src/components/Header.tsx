@@ -3,8 +3,8 @@
 // src/components/Toolbar.tsx
 import Image from 'next/image';
 import { ThemeSwitch } from './Switch';
-import Button from './invoices/Atom/Button';
-import Text from './invoices/Atom/Text';
+import Button from './invoices/Button';
+import Text from './invoices/Text';
 import { Box, Stack } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 

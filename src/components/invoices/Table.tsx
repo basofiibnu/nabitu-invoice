@@ -14,10 +14,10 @@ import {
   styled,
   Typography,
 } from '@mui/material';
-import Chip from './Atom/Chip';
-import TableSkeleton from './Atom/TableSkeleton';
+import Chip from './Chip';
+import TableSkeleton from './TableSkeleton';
 import { InvoiceItem } from '@/lib/types';
-import Actions from './Atom/Actions';
+import Actions from './Actions';
 import { useDeleteInvoice } from '@/lib/query';
 import { redirect } from 'next/navigation';
 

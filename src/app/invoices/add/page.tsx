@@ -14,9 +14,9 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import FormField from '@/components/invoices/Atom/FormField';
-import CurrencyTextField from '@/components/invoices/Atom/CurrencyField';
-import Toast from '@/components/invoices/Atom/Toast';
+import FormField from '@/components/invoices/FormField';
+import CurrencyTextField from '@/components/invoices/CurrencyField';
+import Toast from '@/components/invoices/Toast';
 import { InvoiceFormData } from '@/lib/types';
 import { invoiceSchema } from '@/lib/schema';
 import { useAddInvoice } from '@/lib/query';

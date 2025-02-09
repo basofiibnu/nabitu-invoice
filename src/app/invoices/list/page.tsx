@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/compat/router';
-import SearchField from '@/components/invoices/Atom/SearchField';
-import SelectField from '@/components/invoices/Atom/SelectField';
+import SearchField from '@/components/invoices/SearchField';
+import SelectField from '@/components/invoices/SelectField';
 import GeneralTable from '@/components/invoices/Table';
 import { useInvoices } from '@/lib/query';
 import { useDebounce } from '@/utils/utils';

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 // src/components/Sidebar.tsx
 import { usePathname } from 'next/navigation';
-import Text from './invoices/Atom/Text';
-import MenuLink from './invoices/Atom/MenuLink';
+import Text from './invoices/Text';
+import MenuLink from './invoices/MenuLink';
 
 const Sidebar = () => {
   const pathname = usePathname();
