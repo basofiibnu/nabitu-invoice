@@ -28,6 +28,21 @@ export const useInvoices = (search: string, status: string) => {
   });
 };
 
+export const useDetailInvoice = (uuid: string) => {
+  return useQuery({
+    queryKey: ['invoice', uuid],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('invoices')
+        .select('*')
+        .eq('uuid', uuid)
+        .single();
+      if (error) throw new Error(error.message);
+      return data;
+    },
+  });
+};
+
 export const useAddInvoice = () => {
   const queryClient = useQueryClient();
   return useMutation<void, Error, InvoiceFormData>({
@@ -53,7 +68,8 @@ export const useDeleteInvoice = () => {
       const { error } = await supabase
         .from('invoices')
         .delete()
-        .eq('id', invoiceId);
+        .eq('uuid', invoiceId);
+
       if (error) throw new Error(error.message);
     },
     onSuccess: () => {
@@ -76,7 +92,7 @@ export const useUpdateInvoice = () => {
       const { error } = await supabase
         .from('invoices')
         .update(data)
-        .eq('id', id);
+        .eq('uuid', id);
       if (error) throw new Error(error.message);
     },
     onSuccess: () => {

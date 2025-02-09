@@ -4,7 +4,7 @@ import React from 'react';
 
 type ButtonProps = {
   icon: string;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   isOpened?: boolean;
   background?: string;
   title?: string;

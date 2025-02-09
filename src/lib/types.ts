@@ -12,4 +12,5 @@ export type InvoiceItem = {
   status: 'Paid' | 'Unpaid' | 'Pending';
   updated_at: string;
   uuid: string;
+  id: number;
 };
