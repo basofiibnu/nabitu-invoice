@@ -68,7 +68,10 @@ const Header = () => {
           direction={'row'}
           alignItems={'center'}
           gap={'12px'}
-          className="hidden xl:flex"
+          display={{
+            xs: 'none',
+            xl: 'flex',
+          }}
         >
           <Stack direction={'column'} alignItems={'flex-end'}>
             <Text
