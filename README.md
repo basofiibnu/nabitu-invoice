@@ -33,7 +33,7 @@ Create a `.env.local` file in the root directory and add the following:
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_API_KEY=your_supabase_api_key
 ```
-Replace `your_supabase_url` and `your_supabase_anon_key` with your actual Supabase project credentials.
+Replace `your_supabase_url` and `your_supabase_api_key` with your actual Supabase project credentials.
 
 ### **4. Run the Development Server**
 ```sh
