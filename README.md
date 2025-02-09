@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nabitu Invoice 🧂
 
-## Getting Started
+A web-based invoicing system built with **Next.js** and **Supabase**, designed to streamline invoice management.
 
-First, run the development server:
+## 🚀 Features
+- Create, update, and delete invoices securely with **Row-Level Security (RLS)**
+- Uses **Supabase** as a backend database with PostgreSQL
+- Authentication via Supabase Auth
+- **Next.js App Router** structure (`src/app`) for scalability
+- Tailwind CSS for styling
+- API routes for data fetching and actions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🛠 Setup Instructions
+
+### **1. Clone the Repository**
+```sh
+git clone https://github.com/basofiibnu/nabitu-invoice.git
+cd nabitu-invoice
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Install Dependencies**
+```sh
+npm install
+# or
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **3. Setup Environment Variables**
+Create a `.env.local` file in the root directory and add the following:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+Replace `your_supabase_url` and `your_supabase_anon_key` with your actual Supabase project credentials.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **4. Run the Development Server**
+```sh
+npm run dev
+```
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Technical Decisions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **1. Why Next.js?**
+- **Server-side rendering (SSR) & Static Site Generation (SSG)** for optimized performance.
+- **App Router (`src/app`)** for better scalability and modularity.
+- Built-in API routes for backend logic.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **2. Why Supabase?**
+- PostgreSQL database with **Row-Level Security (RLS)**
+- **Auth integration** with OAuth providers
+- Real-time capabilities via Postgres **listeners**
 
-## Deploy on Vercel
+### **3. Why Tailwind CSS?**
+- Utility-first styling for rapid UI development
+- Lightweight and highly customizable
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **4. Why TanStack React Query?**
+- Efficient data fetching, caching, and synchronization.
+- Reduces unnecessary API calls, improving performance.
+- Simplifies state management for async operations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **5. Why Zod?**
+- Provides runtime validation for form inputs and API responses.
+- Ensures type safety and prevents invalid data from being processed.
+- Works well with TypeScript to enforce data correctness.
+
+### **6. Security Considerations**
+- **Row-Level Security (RLS)** ensures that users can only modify their own invoices.
+- API calls are authenticated using Supabase Auth.
+
+---
+
+## 🐝 API Endpoints (Example)
+### **Fetch All Invoices**
+```ts
+const { data, error } = await supabase
+  .from('invoices')
+  .select('*');
+```
+
+### **Create an Invoice**
+```ts
+const { data, error } = await supabase
+  .from('invoices')
+  .insert([{ name: "New Invoice", amount: 1000 }]);
+```
+
+---
+
+## 🛠 Future Improvements
+- Role-based access control (RBAC)
+- Webhooks for external integrations
+- Improved invoice filtering & search functionality
+
+---
+
+## 🤝 Contributing
+Feel free to submit a pull request or open an issue if you have suggestions!
+
+---
+
+## 📚 License
+This project is open-source under the **MIT License**.
+
