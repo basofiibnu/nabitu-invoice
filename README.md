@@ -5,7 +5,7 @@ A web-based invoicing system built with **Next.js** and **Supabase**, designed t
 ## 🚀 Features
 - Create, update, and delete invoices securely with **Row-Level Security (RLS)**
 - Uses **Supabase** as a backend database with PostgreSQL
-- Authentication via Supabase Auth
+- Authentication via Supabase Auth (supports OAuth and email-based login)
 - **Next.js App Router** structure (`src/app`) for scalability
 - Tailwind CSS for styling
 - API routes for data fetching and actions
@@ -31,8 +31,7 @@ yarn install
 Create a `.env.local` file in the root directory and add the following:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+NEXT_PUBLIC_SUPABASE_API_KEY=your_supabase_api_key
 ```
 Replace `your_supabase_url` and `your_supabase_anon_key` with your actual Supabase project credentials.
 
@@ -70,7 +69,12 @@ Then open [http://localhost:3000](http://localhost:3000) in your browser.
 - Ensures type safety and prevents invalid data from being processed.
 - Works well with TypeScript to enforce data correctness.
 
-### **6. Security Considerations**
+### **6. Why React Hook Form?**
+- Optimized form handling with minimal re-renders.
+- Built-in validation support, reducing boilerplate code.
+- Seamlessly integrates with **Zod** for schema validation.
+
+### **7. Security Considerations**
 - **Row-Level Security (RLS)** ensures that users can only modify their own invoices.
 - API calls are authenticated using Supabase Auth.
 
@@ -107,4 +111,3 @@ Feel free to submit a pull request or open an issue if you have suggestions!
 
 ## 📚 License
 This project is open-source under the **MIT License**.
-
