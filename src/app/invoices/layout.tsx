@@ -5,7 +5,7 @@ import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@/utils/utils';
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 
 import {
   QueryClient,
@@ -25,7 +25,9 @@ export default function InvoicesLayout({
         <CssBaseline />
         <div className="flex h-screen">
           {/* Sidebar */}
-          <Sidebar />
+          <Box className="hidden xl:block">
+            <Sidebar />
+          </Box>
 
           {/* Main content area */}
           <div className="flex-1 flex flex-col bg-gray-50">

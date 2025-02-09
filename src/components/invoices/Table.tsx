@@ -62,7 +62,21 @@ const GeneralTable: GeneralTableComponent = ({ data }) => {
         <TableSkeleton />
       ) : (
         <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="List">
+          <Table
+            sx={{
+              minWidth: {
+                xs: 100,
+                md: 650,
+              },
+              '& .MuiTableCell-root': {
+                padding: {
+                  xs: '8px',
+                  md: '16px',
+                },
+              },
+            }}
+            aria-label="List"
+          >
             <TableHead>
               <TableRow>
                 <StyledTableCell>Invoice</StyledTableCell>

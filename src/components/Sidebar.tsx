@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Text from './invoices/Text';
 import MenuLink from './invoices/MenuLink';
+import { Box } from '@mui/material';
 
 const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="w-[280px] bg-[#1C2434] text-white h-screen px-9 py-7">
+    <Box className="w-[280px] bg-[#1C2434] text-white h-screen px-9 py-7">
       <Image
         src={'/logo.svg'}
         width={166}
@@ -52,7 +53,7 @@ const Sidebar = () => {
           </li>
         </ul>
       </nav>
-    </aside>
+    </Box>
   );
 };
 

@@ -179,9 +179,15 @@ export default function AddInvoicePage() {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'flex-end',
+                justifyContent: {
+                  xs: 'center',
+                  lg: 'flex-end',
+                },
               }}
-              mt={2}
+              mt={{
+                xs: 4,
+                lg: 2,
+              }}
             >
               <Button
                 type="submit"

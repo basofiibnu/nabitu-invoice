@@ -1,16 +1,52 @@
 'use client';
 
-// src/components/Toolbar.tsx
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { ThemeSwitch } from './Switch';
 import Button from './invoices/Button';
 import Text from './invoices/Text';
-import { Box, Stack } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
+import { Box, Stack, IconButton, Drawer } from '@mui/material';
+import { ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
+import Sidebar from './Sidebar';
 
 const Header = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer =
+    (open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
+
+      setDrawerOpen(open);
+    };
+
   return (
-    <header className="flex justify-end items-center bg-white shadow p-4">
+    <header className="flex justify-between items-center bg-white shadow p-4">
+      <Box>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+          sx={{ display: { xs: 'block', lg: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Drawer
+          anchor="left"
+          open={drawerOpen}
+          onClose={toggleDrawer(false)}
+          sx={{ display: { xs: 'block', lg: 'none' } }}
+        >
+          <Sidebar />
+        </Drawer>
+      </Box>
       <Stack direction={'row'} alignItems={'center'} gap={'24px'}>
         <ThemeSwitch />
         <Stack direction={'row'} alignItems={'center'} gap={'16px'}>
@@ -28,7 +64,12 @@ const Header = () => {
           />
         </Stack>
 
-        <Stack direction={'row'} alignItems={'center'} gap={'12px'}>
+        <Stack
+          direction={'row'}
+          alignItems={'center'}
+          gap={'12px'}
+          className="hidden lg:flex"
+        >
           <Stack direction={'column'} alignItems={'flex-end'}>
             <Text
               className="font-semibold text-sm leading-5"

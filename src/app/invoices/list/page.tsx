@@ -61,8 +61,8 @@ export default function MyInvoicesPage() {
   return (
     <Container maxWidth="lg">
       <Stack
-        direction={'row'}
-        justifyContent={'space-between'}
+        direction={{ xs: 'column', md: 'row' }}
+        justifyContent={{ xs: 'center', md: 'space-between' }}
         alignItems={'center'}
         mb={'24px'}
       >
@@ -100,7 +100,10 @@ export default function MyInvoicesPage() {
           </Box>
         </Stack>
       </Stack>
-      <Container className="bg-white p-6 rounded-lg shadow-md">
+      <Container
+        maxWidth="lg"
+        className="bg-white p-6 rounded-lg shadow-md"
+      >
         {isLoading && <GeneralTable.Skeleton />}
         {!isLoading && !error && data && <GeneralTable data={data} />}
         {!isLoading && error && (
